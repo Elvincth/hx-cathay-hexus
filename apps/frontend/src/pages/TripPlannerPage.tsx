@@ -1,17 +1,12 @@
 import {
   IonButton,
   IonButtons,
-  IonCol,
   IonContent,
-  IonGrid,
   IonIcon,
   IonPage,
-  IonRow,
   IonToolbar,
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
-import { FreeMode } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 export function TripPlanner() {
   return (
@@ -50,7 +45,7 @@ export function TripPlanner() {
               </div>
             </div>
 
-            <div className="mt-2 flex w-full gap-4 overflow-auto">
+            <div className="mt-2 flex w-full gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
               {[
                 "Cultural Immersion",
                 "Exploration",
@@ -59,7 +54,7 @@ export function TripPlanner() {
               ].map((tag, index) => (
                 <div
                   key={index}
-                  className="flex w-fit items-center whitespace-nowrap rounded-xl bg-[#016564] p-1 px-1.5 py-1 text-xs font-medium text-white"
+                  className="flex w-fit items-center whitespace-nowrap rounded-xl bg-[#016564] p-1 px-1.5 py-1 text-xs font-medium text-white "
                 >
                   {tag}
                 </div>
@@ -67,6 +62,7 @@ export function TripPlanner() {
             </div>
           </div>
 
+          {/* body */}
           <div>Activity</div>
         </div>
       </IonContent>
