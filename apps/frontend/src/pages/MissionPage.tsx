@@ -1,4 +1,10 @@
-import { IonPage, IonTitle, IonContent } from "@ionic/react";
+import {
+  IonPage,
+  IonTitle,
+  IonContent,
+  IonHeader,
+  IonToolbar,
+} from "@ionic/react";
 import { useEffect, useState } from "react";
 import { MissionCard } from "~/features/common/components/MissionCard";
 import { MissionCardModal } from "~/features/common/components/MissionCardModal";
@@ -8,6 +14,13 @@ export const MissionPage = () => {
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
   const [checkedCount, setCheckedCount] = useState(0);
+  const [missionCardModalOpened, setMissionCardModalOpened] = useState(false);
+  const [selectedCard, setSelectedCard] = useState({
+    title: "",
+    src: "",
+    Status: "",
+    boostingRate: 0,
+  });
 
   const MissionCards = [
     {
@@ -51,6 +64,15 @@ export const MissionPage = () => {
 
   return (
     <IonPage>
+      <IonHeader
+        translucent
+        collapse="fade"
+        className="pointer-events-none absolute opacity-[var(--opacity-scale)]"
+      >
+        <IonToolbar>
+          <IonTitle>Daily Mission</IonTitle>
+        </IonToolbar>
+      </IonHeader>
       <IonContent>
         <div
           className="h-[156px] bg-[url('/images/small-header-bg.svg')] bg-cover bg-no-repeat px-4 
@@ -86,10 +108,8 @@ pb-4 text-white pt-14-safe"
         ))}
       </IonContent>
       <MissionCardModal
-        opened={false}
-        onClosed={function (): void {
-          throw new Error("Function not implemented.");
-        }}
+        opened={missionCardModalOpened}
+        onClosed={() => setMissionCardModalOpened(false)}
       />
     </IonPage>
   );

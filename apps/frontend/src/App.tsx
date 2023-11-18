@@ -113,13 +113,6 @@ const App = () => {
       icon: "images/settings.svg",
       label: "Settings",
     },
-    { id: "signIn", href: "/signIn", icon: "images/login.svg", label: "Login" },
-    {
-      id: "greeting",
-      href: "/greeting",
-      icon: "images/login.svg",
-      label: "Greeting",
-    },
   ];
 
   return (
