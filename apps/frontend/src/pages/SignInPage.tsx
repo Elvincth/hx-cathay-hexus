@@ -37,7 +37,7 @@ export const SignInPage = () => {
         </div>
 
         <form onSubmit={handleSubmit((data) => console.log(data))}>
-          <div className="container flex flex-col items-center w-full gap-4 my-12">
+          <div className="container my-12 flex w-full flex-col items-center gap-4">
             <div className="flex text-6xl text-primary">
               <AsiaMilesIcon />+
             </div>

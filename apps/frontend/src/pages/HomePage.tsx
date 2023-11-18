@@ -49,7 +49,7 @@ export const HomePage = () => {
         </div>
 
         {/* Stack */}
-        <div className="flex flex-col gap-4 mt-4">
+        <div className="mt-4 flex flex-col gap-4">
           <div className="container flex flex-col gap-1">
             <div className="font-bold">Balance Miles</div>
             <MilesBalanceCard />
@@ -92,7 +92,7 @@ export const HomePage = () => {
 
             <IonList inset className="hx-ion-list">
               <IonItem detail={false}>
-                <div className="flex flex-col w-full gap-4">
+                <div className="flex w-full flex-col gap-4">
                   <div className="text-xs">
                     Great job, you got extra{" "}
                     <span className="font-bold">0.01%</span> APY, finish daily
