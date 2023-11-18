@@ -1,6 +1,6 @@
 import { initTRPC, inferAsyncReturnType } from "@trpc/server";
 import * as trpcExpress from "@trpc/server/adapters/express";
-import { helloRouter } from "./routers/hello";
+import { helloRouter } from "./routers/ai";
 
 export const createContext = ({
   req,
