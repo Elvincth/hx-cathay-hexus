@@ -7,6 +7,7 @@ import {
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { MissionCard } from "~/features/common/components/MissionCard";
+import { MissionCardModal } from "~/features/common/components/MissionCardModal";
 
 export const MissionPage = () => {
   const [checked, setChecked] = useState(false);
@@ -38,6 +39,22 @@ export const MissionPage = () => {
     },
   ];
 
+  useEffect(() => {
+    if (checked && checked2 && checked3) {
+      setCheckedCount(3);
+    } else if (checked && checked2) {
+      setCheckedCount(2);
+    } else if (checked && checked3) {
+      setCheckedCount(2);
+    } else if (checked2 && checked3) {
+      setCheckedCount(2);
+    } else if (checked || checked2 || checked3) {
+      setCheckedCount(1);
+    } else {
+      setCheckedCount(0);
+    }
+  }, [checked, checked2, checked3]);
+
   return (
     <IonPage>
       <IonContent>
@@ -58,7 +75,7 @@ pb-4 text-white pt-14-safe"
               <div className=" opacity-50">As 19 Nov 2023</div>
             </div>
             <div className=" flex flex-row text-lg font-bold">
-              <div>1</div>
+              <div>{checkedCount}</div>
               <div className=" opacity-50">/3</div>
             </div>
           </div>
@@ -73,6 +90,12 @@ pb-4 text-white pt-14-safe"
           />
         ))}
       </IonContent>
+      <MissionCardModal
+        opened={false}
+        onClosed={function (): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
     </IonPage>
   );
 };

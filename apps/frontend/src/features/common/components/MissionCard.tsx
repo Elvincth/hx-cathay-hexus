@@ -16,7 +16,7 @@ export const MissionCard = ({
   Status,
 }: MissionCardProps) => {
   return (
-    <div className="p-4 opacity-80">
+    <div className="p-4 active:opacity-80 ">
       <div className="flex flex-col ">
         <IonImg src={src} />
         <div className="flex flex-row items-center justify-center rounded-b-xl bg-[#F8F8F8] p-4">
