@@ -129,7 +129,7 @@ const App = () => {
         setExtraMiles,
         maxAmount,
         setMaxAmount,
-        selectedAmount,
+        selectedAmount, 
         setSelectedAmount,
         claimByDate,
         setClaimByDate,

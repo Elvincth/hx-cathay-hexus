@@ -4,6 +4,7 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
+  IonImg,
   IonList,
   IonModal,
   IonTitle,
@@ -15,54 +16,27 @@ import { OutlineButton } from "./OutlineButton";
 import { cn } from "~/lib/misc";
 import { close } from "ionicons/icons";
 
+export interface MissionCardProps {
+  title: string;
+  src: string;
+  Status: string;
+  boostingRate: number;
+  checked: boolean;
+  description?: string;
+}
 export interface MissionCardModalProps {
   opened: boolean;
   onClosed: () => void;
+  MissionCard: MissionCardProps;
 }
 
-export function MissionCardModal({ opened, onClosed }: MissionCardModalProps) {
+export function MissionCardModal({
+  opened,
+  onClosed,
+  MissionCard,
+}: MissionCardModalProps) {
   const modal = useRef<HTMLIonModalElement>(null);
   const { routerOutletRef } = useApp();
-  //create a extra interest array to store the extra interest and data
-  const extraInterest = [
-    {
-      Date: "19 Nov 2021",
-      interest: 0.4,
-    },
-    {
-      Date: "18 Nov 2021",
-      interest: 0.4,
-    },
-    {
-      Date: "17 Nov 2021",
-      interest: 0.3,
-    },
-    {
-      Date: "16 Nov 2021",
-      interest: 0.3,
-    },
-    {
-      Date: "15 Nov 2021",
-      interest: 0.4,
-    },
-    {
-      Date: "14 Nov 2021",
-      interest: 0.4,
-    },
-    {
-      Date: "13 Nov 2021",
-      interest: 0.3,
-    },
-    {
-      Date: "12 Nov 2021",
-      interest: 0.4,
-    },
-    {
-      Date: "11 Nov 2021",
-      interest: 0.3,
-    },
-  ];
-
   return (
     <IonModal
       ref={modal}
@@ -70,50 +44,22 @@ export function MissionCardModal({ opened, onClosed }: MissionCardModalProps) {
       isOpen={opened}
       onIonModalDidDismiss={onClosed}
     >
-      <IonHeader>
-        <IonToolbar className="[--background:#fff]">
-          <IonTitle>Extra interest</IonTitle>
-          <IonButtons slot="end">
-            <IonButton color="dark" onClick={() => onClosed()}>
-              <IonIcon icon={close} />
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
       <IonContent>
-        <div className="flex w-full flex-col items-center justify-center gap-4 p-4">
-          <div className="flex w-full flex-row items-center justify-between ">
-            <div className="text-sm opacity-50 ">
-              Accumulate rewards by completing
-              <br /> daily missions, applicable to all plans.
-            </div>
-            <div>
-              <OutlineButton className="text-sm " color={"primary"}>
-                Learn more
-              </OutlineButton>
+        <div>
+          <IonImg src={MissionCard.src} className=" bg rounded-t-lg bg-cover" />
+        </div>
+        <div className=" flex flex-col p-4">
+          <div className=" text-xs opacity-50">{MissionCard.Status}</div>
+          <div className="flex flex-row gap-2">
+            {MissionCard.title}{" "}
+            <div className=" flex items-center rounded-[4px] border-[1px] border-primary px-1 text-xs font-medium text-primary">
+              Boosting {MissionCard.boostingRate}x
             </div>
           </div>
+          <div className=" pt-4 text-xs leading-5 opacity-50">
+            {MissionCard.description}
+          </div>
         </div>
-        <hr />
-        <IonList className="overflow-y-scroll text-black">
-          {extraInterest.map((item, index) => {
-            return (
-              <div
-                className={cn(
-                  index % 2 == 0 ? " bg-[#F8F8F8]" : "",
-                  "flex flex-row justify-between p-2 px-3",
-                )}
-                key={item.Date + item.interest}
-              >
-                <div className="text-sm font-normal">{item.Date}</div>
-
-                <div className="text-sm font-normal text-primary">
-                  + {item.interest} %
-                </div>
-              </div>
-            );
-          })}
-        </IonList>
       </IonContent>
     </IonModal>
   );

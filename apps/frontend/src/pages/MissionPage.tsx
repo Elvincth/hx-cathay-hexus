@@ -9,7 +9,10 @@ import {
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { MissionCard } from "~/features/common/components/MissionCard";
-import { MissionCardModal } from "~/features/common/components/MissionCardModal";
+import {
+  MissionCardModal,
+  MissionCardProps,
+} from "~/features/common/components/MissionCardModal";
 
 export const MissionPage = () => {
   const [checked, setChecked] = useState(false);
@@ -22,15 +25,18 @@ export const MissionPage = () => {
     src: "",
     Status: "",
     boostingRate: 0,
+    checked: false,
   });
 
-  const MissionCards = [
+  const MissionCards: MissionCardProps[] = [
     {
       title: "Daily Check In",
       src: "/images/Mission1.png",
       Status: "IN PROGRESS",
       boostingRate: 0.1,
       checked: checked,
+      description:
+        "Welcome to our Daily Check-In! Start your day by joining our interactive mission. Simply click or tap to check in and unlock exclusive benefits.",
     },
     {
       title: "Share a travel memory",
@@ -38,6 +44,7 @@ export const MissionPage = () => {
       Status: "IN PROGRESS",
       boostingRate: 0.2,
       checked: checked2,
+      description: "Share a photo to facebook/Instagram.",
     },
     {
       title: "Answer MCQs",
@@ -45,6 +52,7 @@ export const MissionPage = () => {
       Status: "IN PROGRESS",
       boostingRate: 0.2,
       checked: checked3,
+      description: "Answer 3 MC Question.",
     },
   ];
 
@@ -101,6 +109,10 @@ pb-4 text-white pt-14-safe"
         {MissionCards.map((missionCard, i) => (
           <MissionCard
             key={i}
+            onClick={() => {
+              setMissionCardModalOpened(true);
+              setSelectedCard(missionCard);
+            }}
             checked={checked}
             src={missionCard.src}
             title={missionCard.title}
@@ -112,6 +124,7 @@ pb-4 text-white pt-14-safe"
       <MissionCardModal
         opened={missionCardModalOpened}
         onClosed={() => setMissionCardModalOpened(false)}
+        MissionCard={selectedCard}
       />
     </IonPage>
   );
