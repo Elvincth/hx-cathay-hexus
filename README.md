@@ -4,6 +4,8 @@
 
 - [react-vite-trpc setup](https://github.com/kuubson/react-vite-trpc#-the-challenge)
 
+## Copy the env.example file and rename it as env
+
 ## Dev Commands
 
 ```bash

@@ -5,24 +5,39 @@ import {
   IonImg,
   IonCheckbox,
 } from "@ionic/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MissionCard } from "~/features/common/components/MissionCard";
-const MissionCards = [
-  {
-    title: "Daily Check In",
-    src: "/images/Mission1.png",
-    Status: "IN PROGRESS",
-    boostingRate: 0.1,
-  },
-  {
-    title: "Share a travel memory",
-    src: "/images/Mission2.png",
-    Status: "IN PROGRESS",
-    boostingRate: 0.3,
-  },
-];
+
 export const MissionPage = () => {
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checked3, setChecked3] = useState(false);
+  const [checkedCount, setCheckedCount] = useState(0);
+
+  const MissionCards = [
+    {
+      title: "Daily Check In",
+      src: "/images/Mission1.png",
+      Status: "IN PROGRESS",
+      boostingRate: 0.1,
+      checked: checked,
+    },
+    {
+      title: "Share a travel memory",
+      src: "/images/Mission2.png",
+      Status: "IN PROGRESS",
+      boostingRate: 0.2,
+      checked: checked2,
+    },
+    {
+      title: "Answer MCQs",
+      src: "/images/Mission3.png",
+      Status: "IN PROGRESS",
+      boostingRate: 0.2,
+      checked: checked3,
+    },
+  ];
+
   return (
     <IonPage>
       <IonContent>
