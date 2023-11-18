@@ -32,4 +32,4 @@ turbo start --filter backend
 ```
 
 Frontend: https://milesplus.netlify.app/
-Backend: https://hx-cathay-backend.onrender.com/trpc
+Backend: https://hx-cathay-production.up.railway.app/
