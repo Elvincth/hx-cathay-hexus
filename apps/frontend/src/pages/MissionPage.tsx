@@ -86,21 +86,21 @@ pb-4 text-white pt-14-safe"
             </div>
           </div>
         </div>
-        <div className=" p-4 ">
+        <div className="p-4 ">
           <div className="flex flex-row items-center justify-between rounded-xl bg-[#F8F8F8] p-4 text-sm ">
-            <div className=" flex flex-col  ">
+            <div className="flex flex-col ">
               <div className="">Completed Missions</div>
-              <div className=" opacity-50">As 19 Nov 2023</div>
+              <div className="opacity-50 ">As 19 Nov 2023</div>
             </div>
-            <div className=" flex flex-row text-lg font-bold">
+            <div className="flex flex-row text-lg font-bold ">
               <div>{checkedCount}</div>
-              <div className=" opacity-50">/3</div>
+              <div className="opacity-50 ">/3</div>
             </div>
           </div>
         </div>
-        {MissionCards.map((missionCard) => (
+        {MissionCards.map((missionCard, i) => (
           <MissionCard
-            onClick={() => setMissionCardModalOpened(true)}
+            key={i}
             checked={checked}
             src={missionCard.src}
             title={missionCard.title}
