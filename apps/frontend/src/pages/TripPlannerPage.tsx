@@ -50,14 +50,17 @@ export function TripPlanner() {
               </div>
             </div>
 
-            <div className="flex w-full gap-4 mt-2 overflow-auto">
+            <div className="mt-2 flex w-full gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
               {[
                 "Cultural Immersion",
                 "Exploration",
                 "Photography",
                 "Nature",
-              ].map((tag) => (
-                <div className="flex w-fit items-center whitespace-nowrap rounded-xl bg-[#016564] p-1 px-1.5 py-1 text-xs font-medium text-white">
+              ].map((tag, i) => (
+                <div
+                  key={i}
+                  className="flex w-fit items-center whitespace-nowrap rounded-xl bg-[#016564] p-1 px-1.5 py-1 text-xs font-medium text-white"
+                >
                   {tag}
                 </div>
               ))}
@@ -65,6 +68,8 @@ export function TripPlanner() {
           </div>
 
           <div>Activity</div>
+
+          
         </div>
       </IonContent>
     </IonPage>

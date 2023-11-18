@@ -1,10 +1,4 @@
-import {
-  IonPage,
-  IonTitle,
-  IonContent,
-  IonImg,
-  IonCheckbox,
-} from "@ionic/react";
+import { IonPage, IonTitle, IonContent } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { MissionCard } from "~/features/common/components/MissionCard";
 import { MissionCardModal } from "~/features/common/components/MissionCardModal";

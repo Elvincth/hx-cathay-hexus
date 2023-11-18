@@ -22,8 +22,10 @@ app.use(
     router: appRouter,
     createContext,
     onError: console.log,
-  })
+  }),
 );
+
+
 
 app.listen(env.PORT, () => {
   console.log(`🚀 Server ready at http://localhost:${env.PORT}/trpc`);
