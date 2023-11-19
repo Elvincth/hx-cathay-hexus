@@ -10,7 +10,7 @@ import { chevronBack, reload } from "ionicons/icons";
 import { trpc } from "~/lib/trpcClient";
 
 export function TripPlanner() {
-  const tripActivities = trpc.ai.genTripActivities.useMutation();
+  const tripActivities = trpc.ai.genTripActivitiesKlook.useMutation();
 
   return (
     <IonPage>

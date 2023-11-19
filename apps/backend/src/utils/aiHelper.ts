@@ -6,13 +6,13 @@ import {
 } from "langchain/tools";
 import { env } from "process";
 
-export const travelTools = [
-  new RequestsGetTool(),
-  new RequestsPostTool(),
-  AIPluginTool.fromPluginUrl(
-    "https://www.klook.com/v1/gptpluginsrv/public/openapi.json",
-  ),
-];
+// export const travelTools = [
+//   new RequestsGetTool(),
+//   new RequestsPostTool(),
+//   AIPluginTool.fromPluginUrl(
+//     "https://www.klook.com/v1/gptpluginsrv/public/openapi.json",
+//   ),
+// ];
 
 export const llm = new ChatOpenAI({
   azureOpenAIApiKey: env.AZURE_OPENAI_API_KEY,

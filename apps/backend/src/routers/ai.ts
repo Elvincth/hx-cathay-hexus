@@ -1,11 +1,21 @@
 import { initializeAgentExecutorWithOptions } from "langchain/agents";
+import { HumanMessage, SystemMessage } from "langchain/dist/schema";
 import { RequestsGetTool, RequestsPostTool } from "langchain/tools";
+import { z } from "zod";
 import { publicProcedure, createTRPCRouter } from "~/trpc";
 import { llm } from "~/utils/aiHelper";
 import { klookPlugin } from "~/utils/klookPlugin";
 
+// Define the input schema for travel details
+const travelDetailsSchema = z.object({
+  adults: z.number(),
+  children: z.number(),
+  travelDate: z.string(),
+  destination: z.string(),
+});
+
 export const aiRouter = createTRPCRouter({
-  genTripActivities: publicProcedure.mutation(async () => {
+  genTripActivitiesKlook: publicProcedure.mutation(async () => {
     const tools = [new RequestsGetTool(), new RequestsPostTool()];
 
     const executor = await initializeAgentExecutorWithOptions(tools, llm, {
@@ -17,13 +27,46 @@ export const aiRouter = createTRPCRouter({
     const result = await executor.invoke({
       input: `${JSON.stringify(
         klookPlugin,
-      )}Plan a trip to japan list of things to do in japan in JSON format e.g. {
-        name: 'TeamLab Planets TOKYO Ticket',
-        price: '2500 or $198'...}`,
+      )}Plan a trip to japan list of things to do in japan output in JSON format e.g.{ name: 'TeamLab Planets TOKYO Ticket',ice: '2500 or $198'...}`,
     });
+
+    //chain the result to the next agent
 
     console.log({ result });
 
     return result;
   }),
+
+  genTripActivitiesKlookWithVars: publicProcedure
+    .input(travelDetailsSchema)
+    .mutation(async ({ input }) => {
+      const tools = [new RequestsGetTool(), new RequestsPostTool()];
+
+      const executor = await initializeAgentExecutorWithOptions(tools, llm, {
+        agentType: "chat-zero-shot-react-description",
+        verbose: true,
+      });
+
+      // Generate a dynamic input string using the user's travel details
+      const dynamicInput = `Plan a trip to ${input.destination} for ${input.adults} adults and ${input.children} children on ${input.travelDate}. List of things to do in ${input.destination} in JSON format e.g. {name: 'Activity Name', type: 'Activity Type', price: 'Price'}`;
+
+      // Inject klook plugin into executor and use dynamic input
+      const result = await executor.invoke({
+        input: `${JSON.stringify(klookPlugin)}${dynamicInput}`,
+      });
+
+      const messages = [
+        new SystemMessage({ content: "You are a helpful assistant" }),
+        new HumanMessage({
+          content:
+            "Generate a list of travel activities in JSON format. Each activity should include the name, type, asiaMiles, and price in HKD. Example format: [{name: 'Activity Name', type: 'Activity Type', asiaMiles: 'Miles Amount', hkd: 'Price in HKD'}]",
+        }),
+      ];
+
+      const chatModelResult = await llm.predictMessages(messages);
+
+      return chatModelResult;
+    }),
+
+  getTripActivities: publicProcedure.mutation(async () => {}),
 });
