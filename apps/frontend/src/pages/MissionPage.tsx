@@ -15,7 +15,7 @@ import {
 } from "~/features/common/components/MissionCardModal";
 
 export const MissionPage = () => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
   const [checkedCount, setCheckedCount] = useState(0);
