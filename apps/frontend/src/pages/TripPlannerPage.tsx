@@ -1,7 +1,6 @@
 import {
   IonButton,
   IonButtons,
-  IonCheckbox,
   IonCol,
   IonContent,
   IonFooter,
@@ -14,9 +13,8 @@ import {
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
 import { useState } from "react";
-import { AsiaMilesIcon, OutlineButton } from "~/features/common";
+import { OutlineButton } from "~/features/common";
 import { ActivityList } from "~/features/common/components/ActivityList";
-import { StarRating } from "~/features/common/components/StartRating";
 import { RegenerateBlockModal } from "~/features/miles/components/RegenerateBlockModal";
 import { trpc } from "~/lib/trpcClient";
 
@@ -126,7 +124,7 @@ export function TripPlanner() {
               </IonCol>
               <IonCol className="flex flex-col gap-1 rounded-xl border-[1px] px-4 py-3 text-sm font-medium">
                 <div className="opacity-50 ">Check Out</div>
-                <div className=" text-primary">26 Nov 2023</div>
+                <div className="text-primary">26 Nov 2023</div>
               </IonCol>
             </IonRow>
           </IonGrid>
@@ -150,18 +148,18 @@ export function TripPlanner() {
             <IonRow className="flex flex-row items-center justify-between">
               <div className="flex w-full flex-col gap-2 p-2 pb-1">
                 <div className="flex flex-row gap-1 text-xs">
-                  Next <div className=" font-bold">Insurance</div>
+                  Next <div className="font-bold ">Insurance</div>
                 </div>
                 <IonProgressBar value={0.5} className="h-1.5  rounded-lg" />
               </div>
             </IonRow>
             <IonRow>
-              <IonCol className=" m-0">
+              <IonCol className="m-0 ">
                 <OutlineButton className="w-full text-sm" color={"primary"}>
                   Save to Draft
                 </OutlineButton>
               </IonCol>
-              <IonCol className=" m-0">
+              <IonCol className="m-0 ">
                 <IonButton className="w-full text-sm" color={"primary"}>
                   Continue
                 </IonButton>

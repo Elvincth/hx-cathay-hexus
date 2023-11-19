@@ -1,5 +1,5 @@
 import { IonButton, IonContent, IonModal } from "@ionic/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Input } from "~/features/common";
 
 export interface RegenerateModalProps {
@@ -12,6 +12,7 @@ export function RegenerateBlockModal({
   onClosed,
 }: RegenerateModalProps) {
   const modal = useRef<HTMLIonModalElement>(null);
+  const [value, setValue] = useState("");
 
   return (
     <IonModal
@@ -27,7 +28,11 @@ export function RegenerateBlockModal({
           <div className="text-lg font-extrabold">More</div>
 
           <div className="mt-2 flex flex-col gap-3">
-            <Input placeholder="Tell us what you want to change" />
+            <Input
+              placeholder="Tell us what you want to change"
+              value={value}
+              onClick={() => modal.current?.dismiss()}
+            />
 
             <IonButton
               expand="full"
