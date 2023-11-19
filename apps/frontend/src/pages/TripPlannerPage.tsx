@@ -24,7 +24,11 @@ export function TripPlanner() {
 
           <IonToolbar className="pt-8 [--background:transparent]">
             <IonButtons slot="start">
-              <IonButton color="dark">
+              <IonButton
+                color="dark"
+                routerLink="/manage-trip"
+                routerDirection="back"
+              >
                 <IonIcon icon={chevronBack} />
               </IonButton>
             </IonButtons>
