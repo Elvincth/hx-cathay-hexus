@@ -8,16 +8,16 @@ import { klookPlugin } from "~/utils/klookPlugin";
 import { oneLineTrim } from "common-tags";
 
 // Define the input schema for travel details
-const travelDetailsSchema = z.object({
-  adults: z.number(),
-  children: z.number(),
-  travelDate: z.string(),
-  destination: z.string(),
-});
+// const travelDetailsSchema = z.object({
+//   adults: z.number(),
+//   children: z.number(),
+//   travelDate: z.string(),
+//   destination: z.string(),
+// });
 
 const travelDetailsEditSchema = z.object({
   requirement: z.string(),
-  oldPlan: 
+  oldPlan: z.string(),
 });
 
 export const aiRouter = createTRPCRouter({
@@ -44,22 +44,17 @@ export const aiRouter = createTRPCRouter({
   }),
 
   genTripActivities: publicProcedure
-    .input(travelDetailsSchema)
+    .input(travelDetailsEditSchema)
     .mutation(async ({ input }) => {
-      const tools = [new RequestsGetTool(), new RequestsPostTool()];
-
-      // Generate a dynamic input string using the user's travel details
-      const dynamicInput = `Plan a trip to ${input.destination} for ${input.adults} adults and ${input.children} children on ${input.travelDate}. List of things to do in ${input.destination} in JSON format e.g. {name: 'Activity Name', type: 'Activity Type', price: 'Price'}`;
-
       const messages = [
         new SystemMessage({ content: "You are a helpful assistant" }),
         new HumanMessage({
           content: oneLineTrim`
           Generate a list of travel activities in JSON format. 
           Each activity should include the name, type, asiaMiles, and price in HKD. 
-          I want to change 
-          Example format: 
-          [{title: "TeamLab Planets TOKYO 3",description: "Digital Nature 3 | All day", price: 195,miles: 2500,imageUrl: "",}]`,
+          I want to change:${input.requirement}
+          My current plan is:${input.oldPlan}
+          The output format:[{title: "TeamLab Planets TOKYO 3",description: "Digital Nature 3 | All day", price: 195,miles: 2500,imageUrl: "",}]`,
         }),
       ];
 
@@ -67,6 +62,4 @@ export const aiRouter = createTRPCRouter({
 
       return chatModelResult.content;
     }),
-
-  getTripActivities: publicProcedure.mutation(async () => {}),
 });
