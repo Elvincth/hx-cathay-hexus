@@ -13,13 +13,17 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
-import { AsiaMilesIcon, OutlineButton } from "~/features/common";
+import { useState } from "react";
+import { AsiaMilesIcon } from "~/features/common";
 import { ActivityList } from "~/features/common/components/ActivityList";
 import { StarRating } from "~/features/common/components/StartRating";
+import { RegenerateBlockModal } from "~/features/miles/components/RegenerateBlockModal";
 import { trpc } from "~/lib/trpcClient";
 
 export function TripPlanner() {
   const tripActivities = trpc.ai.genTripActivities.useMutation();
+  const [regenerateModal, setRegenerateModal] = useState(false);
+
   const ActivityLists = [
     {
       title: "TeamLab Planets TOKYO Ticket",
@@ -80,16 +84,7 @@ export function TripPlanner() {
                 <IonButton
                   color="light"
                   fill="outline"
-                  onClick={async () => {
-                    const result = await tripActivities.mutateAsync({
-                      adults: 1,
-                      children: 2,
-                      travelDate: "2023-11-19",
-                      destination: "Tokyo, Japan",
-                    });
-
-                    console.log(result);
-                  }}
+                  onClick={() => setRegenerateModal(true)}
                 >
                   <IonIcon icon={reload} />
                 </IonButton>
@@ -116,8 +111,13 @@ export function TripPlanner() {
           {/* body */}
         </div>
 
+        <RegenerateBlockModal
+          opened={regenerateModal}
+          onClosed={() => setRegenerateModal(false)}
+        />
+
         <div className="p-4 font-semibold">
-          <div className=" w-full pb-3">Activity</div>
+          <div className="w-full pb-3 ">Activity</div>
           <IonGrid className="p-0 pb-6">
             <IonRow className="gap-2 ">
               <IonCol className="flex flex-col gap-1 rounded-xl  border-[1px] px-4 py-3 text-sm font-medium">
@@ -130,7 +130,7 @@ export function TripPlanner() {
               </IonCol>
             </IonRow>
           </IonGrid>
-          <div className=" flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
             {ActivityLists.map((item, index) => (
               <ActivityList
                 key={index}

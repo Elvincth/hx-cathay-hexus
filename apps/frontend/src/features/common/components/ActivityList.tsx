@@ -22,19 +22,19 @@ export const ActivityList = ({
   return (
     <div className="flex flex-col">
       <div className="flex flex-row justify-between">
-        <div className=" flex flex-row">
+        <div className="flex flex-row ">
           <img src="/images/Hotel1.png" className="h-[66px] w-[66px]" />
-          <div className=" flex flex-col gap-1 pl-2">
-            <div>{title}</div>
+          <div className="flex flex-col gap-1 pl-2 ">
+            <div className="line-clamp-1">{title}</div>
             <div className="flex flex-row items-center text-xs opacity-50">
               {description}
             </div>
             <div className="flex flex-row items-center text-sm font-medium text-primary">
-              <AsiaMilesIcon className=" pr-1 text-xs" />
-              <div className=" flex flex-row items-center gap-1 text-sm">
+              <AsiaMilesIcon className="pr-1 text-xs " />
+              <div className="flex flex-row items-center gap-1 text-sm ">
                 <FormatNumber value={miles}></FormatNumber>{" "}
-                <div className=" text-black opacity-50">or</div>{" "}
-                <div className=" text-xs text-black">HK${price}</div>
+                <div className="text-black opacity-50 ">or</div>{" "}
+                <div className="text-xs text-black ">HK${price}</div>
               </div>
             </div>
           </div>
