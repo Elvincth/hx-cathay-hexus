@@ -13,7 +13,7 @@ import {
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
 import { useState } from "react";
-import { AsiaMilesIcon, OutlineButton } from "~/features/common";
+import { OutlineButton } from "~/features/common";
 import { ActivityList } from "~/features/common/components/ActivityList";
 import { RegenerateBlockModal } from "~/features/miles/components/RegenerateBlockModal";
 import { trpc } from "~/lib/trpcClient";
