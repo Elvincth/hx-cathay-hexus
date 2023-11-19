@@ -1,4 +1,3 @@
-import { FormatNumber } from "./FormatNumber";
 import { AsiaMilesIcon } from "./Icons/AsiaMilesIcon";
 
 export interface OfferCardProps {
@@ -47,9 +46,6 @@ export const OfferCard = ({
 
       <div className="flex flex-row gap-1.5 text-xs font-normal opacity-80">
         <div>Max. amount:</div>
-        <div className="flex items-center text-xs ">
-          <AsiaMilesIcon className="pr-1 " /> <FormatNumber value={maxAmount} />
-        </div>
       </div>
     </div>
   );

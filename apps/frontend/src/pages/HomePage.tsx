@@ -26,8 +26,10 @@ import { MilesBalanceCard } from "~/features/miles";
 import { ExtraInterestModal } from "~/features/common/components/ExtraInterestModal";
 import { useState } from "react";
 import { tripCards } from "./TripPage";
+import { InfoModal } from "~/features/common/components/InfoModal";
 export const HomePage = () => {
   const [extraIntModal, setExtraIntModal] = useState(false);
+  const [infoModal, setInfoModal] = useState(false);
   return (
     <IonPage>
       <IonHeader
@@ -184,6 +186,7 @@ export const HomePage = () => {
           opened={extraIntModal}
           onClosed={() => setExtraIntModal(false)}
         />
+        <InfoModal opened={infoModal} onClosed={() => setInfoModal(false)} />
       </IonContent>
     </IonPage>
   );
