@@ -19,7 +19,7 @@ export const aiRouter = createTRPCRouter({
         klookPlugin,
       )}Plan a trip to japan list of things to do in japan in JSON format e.g. {
         name: 'TeamLab Planets TOKYO Ticket',
-        price: '2500 or $198'}`,
+        price: '2500 or $198'...}`,
     });
 
     console.log({ result });

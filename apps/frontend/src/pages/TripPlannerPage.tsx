@@ -49,8 +49,8 @@ export function TripPlanner() {
                 <IonButton
                   color="light"
                   fill="outline"
-                  onClick={() => {
-                    const result = tripActivities.mutateAsync();
+                  onClick={async () => {
+                    const result = await tripActivities.mutateAsync();
 
                     console.log(result);
                   }}
