@@ -4,14 +4,16 @@ import {
   IonCheckbox,
   IonCol,
   IonContent,
+  IonFooter,
   IonGrid,
   IonIcon,
   IonPage,
+  IonProgressBar,
   IonRow,
   IonToolbar,
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
-import { AsiaMilesIcon } from "~/features/common";
+import { AsiaMilesIcon, OutlineButton } from "~/features/common";
 import { ActivityList } from "~/features/common/components/ActivityList";
 import { StarRating } from "~/features/common/components/StartRating";
 import { trpc } from "~/lib/trpcClient";
@@ -142,6 +144,32 @@ export function TripPlanner() {
           </div>
         </div>
       </IonContent>
+      <IonFooter>
+        <IonToolbar className="[--background:#fff]">
+          <IonGrid>
+            <IonRow className="flex flex-row items-center justify-between">
+              <div className="flex w-full flex-col gap-2">
+                <div className="flex flex-row gap-1 text-xs">
+                  Next <div className=" font-bold">Insurance</div>
+                </div>
+                <IonProgressBar value={0.5} className="h-1.5  rounded-lg" />
+              </div>
+            </IonRow>
+            <IonRow>
+              <IonCol className=" m-0 ">
+                <OutlineButton className="w-full text-sm" color={"primary"}>
+                  Save to Draft
+                </OutlineButton>
+              </IonCol>
+              <IonCol className=" m-0">
+                <IonButton className="w-full text-sm" color={"primary"}>
+                  Continue
+                </IonButton>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+        </IonToolbar>
+      </IonFooter>
     </IonPage>
   );
 }
