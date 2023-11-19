@@ -21,9 +21,15 @@ export const ActivityList = ({
 }: ActivityListProps) => {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row justify-between">
+      <div
+        className="flex flex-row justify-between"
+        style={{
+          background:
+            "linear-gradient(180deg, #D9D9D9 0%, rgba(217, 217, 217, 0.00) 100%)",
+        }}
+      >
         <div className="flex flex-row ">
-          <img src={imageUrl} className="h-[66px] w-[66px]" />
+          <div className="h-[66px] w-[66px] " />
           <div className="flex flex-col gap-1 pl-2 ">
             <div className="line-clamp-1">{title}</div>
             <div className="flex flex-row items-center text-xs opacity-50">

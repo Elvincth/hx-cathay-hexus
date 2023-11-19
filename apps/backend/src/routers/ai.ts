@@ -17,7 +17,7 @@ import { oneLineTrim } from "common-tags";
 
 const travelDetailsEditSchema = z.object({
   requirement: z.string(),
-  oldPlan: z.string(),
+  // oldPlan: z.string(),
 });
 
 export const aiRouter = createTRPCRouter({
@@ -53,8 +53,16 @@ export const aiRouter = createTRPCRouter({
           Generate a list of travel activities in JSON format. 
           Each activity should include the name, type, asiaMiles, and price in HKD. 
           I want to change:${input.requirement}
-          My current plan is:${input.oldPlan}
-          The output format:[{title: "TeamLab Planets TOKYO 3",description: "Digital Nature 3 | All day", price: 195,miles: 2500,imageUrl: "",}]`,
+          The output format:[
+            {
+              "name": "Hiking in the mountains",
+              "type": "Outdoor",
+              "asiaMiles": 500,
+              "priceHKD": 200,
+              "imageUrl": ""
+            }..]
+          OUTPUT JSON ONLY: 
+          `,
         }),
       ];
 

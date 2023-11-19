@@ -16,35 +16,41 @@ import { useState } from "react";
 import { OutlineButton } from "~/features/common";
 import { ActivityList } from "~/features/common/components/ActivityList";
 import { RegenerateBlockModal } from "~/features/miles/components/RegenerateBlockModal";
-import { trpc } from "~/lib/trpcClient";
+
+export interface Activity {
+  name: string;
+  type: string;
+  price: number;
+  miles: number;
+  imageUrl: string;
+}
 
 export function TripPlanner() {
-  const tripActivities = trpc.ai.genTripActivities.useMutation();
   const [regenerateModal, setRegenerateModal] = useState(false);
-
-  const ActivityLists = [
+  const [activityLists, setActivityLists] = useState<Activity[]>([
     {
-      title: "TeamLab Planets TOKYO Ticket",
-      description: "Digital Nature | All day",
+      name: "TeamLab Planets TOKYO Ticket",
+      type: "Digital Nature | All day",
       price: 195,
       miles: 2500,
       imageUrl: "/images/Activity1.png",
     },
     {
-      title: "TeamLab 2 TOKYO Ticket",
-      description: "Digital Nature 2 | All day",
+      name: "TeamLab 2 TOKYO Ticket",
+      type: "Digital Nature 2 | All day",
       price: 195,
       miles: 2500,
       imageUrl: "/images/Activity2.png",
     },
     {
-      title: "TeamLab Planets TOKYO 3",
-      description: "Digital Nature 3 | All day",
+      name: "TeamLab Planets TOKYO 3",
+      type: "Digital Nature 3 | All day",
       price: 195,
       miles: 2500,
       imageUrl: "/images/Activity3.png",
     },
-  ];
+  ]);
+
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -110,6 +116,7 @@ export function TripPlanner() {
         </div>
 
         <RegenerateBlockModal
+          onNewPlan={(newPlan) => setActivityLists(newPlan)}
           opened={regenerateModal}
           onClosed={() => setRegenerateModal(false)}
         />
@@ -129,11 +136,11 @@ export function TripPlanner() {
             </IonRow>
           </IonGrid>
           <div className="flex flex-col gap-4">
-            {ActivityLists.map((item, index) => (
+            {activityLists.map((item, index) => (
               <ActivityList
                 key={index}
-                title={item.title}
-                description={item.description}
+                title={item.name}
+                description={item.type}
                 price={item.price}
                 miles={item.miles}
                 imageUrl={item.imageUrl}
