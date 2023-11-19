@@ -14,7 +14,7 @@ import {
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
 import { useState } from "react";
-import { AsiaMilesIcon } from "~/features/common";
+import { AsiaMilesIcon, OutlineButton } from "~/features/common";
 import { ActivityList } from "~/features/common/components/ActivityList";
 import { StarRating } from "~/features/common/components/StartRating";
 import { RegenerateBlockModal } from "~/features/miles/components/RegenerateBlockModal";
@@ -148,7 +148,7 @@ export function TripPlanner() {
         <IonToolbar className="[--background:#fff]">
           <IonGrid>
             <IonRow className="flex flex-row items-center justify-between">
-              <div className="flex w-full flex-col gap-2">
+              <div className="flex w-full flex-col gap-2 p-2 pb-1">
                 <div className="flex flex-row gap-1 text-xs">
                   Next <div className=" font-bold">Insurance</div>
                 </div>
@@ -156,7 +156,7 @@ export function TripPlanner() {
               </div>
             </IonRow>
             <IonRow>
-              <IonCol className=" m-0 ">
+              <IonCol className=" m-0">
                 <OutlineButton className="w-full text-sm" color={"primary"}>
                   Save to Draft
                 </OutlineButton>
