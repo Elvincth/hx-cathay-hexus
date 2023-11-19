@@ -2,6 +2,7 @@ import {
   IonButton,
   IonButtons,
   IonContent,
+  IonFooter,
   IonHeader,
   IonIcon,
   IonImg,
@@ -61,6 +62,11 @@ export function MissionCardModal({
           </div>
         </div>
       </IonContent>
+      <IonFooter>
+        <IonToolbar className="[--background:#fff]">
+          <IonButton className="w-full">Next</IonButton>
+        </IonToolbar>
+      </IonFooter>
     </IonModal>
   );
 }
