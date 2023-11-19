@@ -5,6 +5,7 @@ import { z } from "zod";
 import { publicProcedure, createTRPCRouter } from "~/trpc";
 import { llm } from "~/utils/aiHelper";
 import { klookPlugin } from "~/utils/klookPlugin";
+import { oneLineTrim } from "common-tags";
 
 // Define the input schema for travel details
 const travelDetailsSchema = z.object({
@@ -12,6 +13,11 @@ const travelDetailsSchema = z.object({
   children: z.number(),
   travelDate: z.string(),
   destination: z.string(),
+});
+
+const travelDetailsEditSchema = z.object({
+  requirement: z.string(),
+  oldPlan: 
 });
 
 export const aiRouter = createTRPCRouter({
@@ -48,8 +54,12 @@ export const aiRouter = createTRPCRouter({
       const messages = [
         new SystemMessage({ content: "You are a helpful assistant" }),
         new HumanMessage({
-          content:
-            "Generate a list of travel activities in JSON format. Each activity should include the name, type, asiaMiles, and price in HKD. Example format: [{name: 'Activity Name', type: 'Activity Type', asiaMiles: 'Miles Amount', hkd: 'Price in HKD'}]",
+          content: oneLineTrim`
+          Generate a list of travel activities in JSON format. 
+          Each activity should include the name, type, asiaMiles, and price in HKD. 
+          I want to change 
+          Example format: 
+          [{title: "TeamLab Planets TOKYO 3",description: "Digital Nature 3 | All day", price: 195,miles: 2500,imageUrl: "",}]`,
         }),
       ];
 

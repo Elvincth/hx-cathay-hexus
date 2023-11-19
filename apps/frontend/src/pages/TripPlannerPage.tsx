@@ -1,7 +1,6 @@
 import {
   IonButton,
   IonButtons,
-  IonCheckbox,
   IonCol,
   IonContent,
   IonGrid,
@@ -12,9 +11,7 @@ import {
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
 import { useState } from "react";
-import { AsiaMilesIcon } from "~/features/common";
 import { ActivityList } from "~/features/common/components/ActivityList";
-import { StarRating } from "~/features/common/components/StartRating";
 import { RegenerateBlockModal } from "~/features/miles/components/RegenerateBlockModal";
 import { trpc } from "~/lib/trpcClient";
 
@@ -50,7 +47,7 @@ export function TripPlanner() {
       <IonContent fullscreen>
         <div className="relative flex  h-[280px] flex-col bg-[url(/images/Tokyo.png)] bg-cover bg-center">
           <div
-            className="-z-1 absolute bottom-0 w-full opacity-70"
+            className="absolute bottom-0 w-full -z-1 opacity-70"
             style={{
               background:
                 "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 50%)",
@@ -70,7 +67,7 @@ export function TripPlanner() {
             </IonButtons>
           </IonToolbar>
 
-          <div className="z-10 mt-auto w-full p-4 text-white">
+          <div className="z-10 w-full p-4 mt-auto text-white">
             <div className="flex justify-between">
               <div className="p-0">
                 <div className="font-bold">Tokyo, Japan</div>
@@ -124,7 +121,7 @@ export function TripPlanner() {
               </IonCol>
               <IonCol className="flex flex-col gap-1 rounded-xl border-[1px] px-4 py-3 text-sm font-medium">
                 <div className="opacity-50 ">Check Out</div>
-                <div className=" text-primary">26 Nov 2023</div>
+                <div className="text-primary">26 Nov 2023</div>
               </IonCol>
             </IonRow>
           </IonGrid>
