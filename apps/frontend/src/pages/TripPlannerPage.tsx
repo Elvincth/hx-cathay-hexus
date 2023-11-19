@@ -56,7 +56,12 @@ export function TripPlanner() {
                   color="light"
                   fill="outline"
                   onClick={async () => {
-                    const result = await tripActivities.mutateAsync();
+                    const result = await tripActivities.mutateAsync({
+                      adults: 1,
+                      children: 2,
+                      travelDate: "2023-11-19",
+                      destination: "Tokyo, Japan",
+                    });
 
                     console.log(result);
                   }}
@@ -85,16 +90,17 @@ export function TripPlanner() {
 
           {/* body */}
         </div>
+
         <div className="p-4 font-semibold">
           <div className=" w-full pb-3">Hotel</div>
           <IonGrid className="p-0 pb-6">
             <IonRow className="gap-2 ">
               <IonCol className="flex flex-col gap-1 rounded-xl  border-[1px] px-4 py-3 text-sm font-medium">
-                <div className=" opacity-50">Check In</div>
+                <div className="opacity-50 ">Check In</div>
                 <div className=" text-primary">19 Nov 2023</div>
               </IonCol>
               <IonCol className="flex flex-col gap-1 rounded-xl border-[1px] px-4 py-3 text-sm font-medium">
-                <div className=" opacity-50">Check Out</div>
+                <div className="opacity-50 ">Check Out</div>
                 <div className=" text-primary">26 Nov 2023</div>
               </IonCol>
             </IonRow>
