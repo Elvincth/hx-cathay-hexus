@@ -19,8 +19,8 @@ export function RegenerateBlockModal({
       ref={modal}
       isOpen={opened}
       onIonModalDidDismiss={onClosed}
-      initialBreakpoint={0.35}
       backdropDismiss
+      initialBreakpoint={0.35}
       breakpoints={[0, 0.35]}
     >
       <IonContent>
@@ -31,7 +31,7 @@ export function RegenerateBlockModal({
             <Input
               placeholder="Tell us what you want to change"
               value={value}
-              onClick={() => modal.current?.dismiss()}
+              onIonChange={(e) => setValue(e.detail.value!)}
             />
 
             <IonButton
