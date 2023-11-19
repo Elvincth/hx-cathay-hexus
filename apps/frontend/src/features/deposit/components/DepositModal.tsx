@@ -114,7 +114,7 @@ export function DepositModal({ opened, onClosed }: DepositModalProps) {
 
           {step === 2 && (
             <div className="flex flex-col">
-              <div className="py-3 border border-x-0 border-y border-zinc-100">
+              <div className="border border-x-0 border-y border-zinc-100 py-3">
                 <DepositPlanContent {...selectedPlan!} />
                 <IonButton
                   size="small"
