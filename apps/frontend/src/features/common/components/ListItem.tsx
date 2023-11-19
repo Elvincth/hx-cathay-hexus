@@ -13,7 +13,7 @@ export const ListItem = (
     <IonItem
       color="light"
       button
-      style={{ "--border-radius": "12px" }}
+      style={{ "--border-radius": "0px" }}
       className={cn(props.className, "!text-primary")}
     >
       <IonLabel className="py-1">{props.children}</IonLabel>

@@ -64,7 +64,9 @@ export function MissionCardModal({
       </IonContent>
       <IonFooter>
         <IonToolbar className="[--background:#fff]">
-          <IonButton className="w-full">Next</IonButton>
+          <IonButton className="w-full" onClick={() => onClosed()}>
+            Next
+          </IonButton>
         </IonToolbar>
       </IonFooter>
     </IonModal>
