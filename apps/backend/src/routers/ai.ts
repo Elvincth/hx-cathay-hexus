@@ -53,7 +53,14 @@ export const aiRouter = createTRPCRouter({
           Generate a list of travel activities in JSON format. 
           Each activity should include the name, type, asiaMiles, and price in HKD. 
           I want to change:${input.requirement}
-          The output format:[{name: "...",type: "...", price: 195, miles: 2500, imageUrl: ""}]
+          The output format:[
+            {
+              "name": "Hiking in the mountains",
+              "type": "Outdoor",
+              "asiaMiles": 500,
+              "priceHKD": 200,
+              "imageUrl": ""
+            }..]
           OUTPUT JSON ONLY: 
           `,
         }),
