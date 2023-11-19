@@ -15,17 +15,18 @@ export function MilesBalanceCard() {
         {/* Current */}
         <div className="flex flex-1 items-center gap-1">
           <AsiaMilesIcon className="text-2xl" />
-          <div className="text-4xl font-bold">101389.11</div>
+          <div className="text-3xl font-bold">
+            <FormatNumber value={90914} />
+          </div>
         </div>
 
         {/* Changes */}
-        <div className="text-right text-sm">
+        <div className="flex flex-row items-center gap-1 text-right text-sm">
           <div className="flex items-center justify-end gap-1 font-bold text-primary">
             + <AsiaMilesIcon className="text-primary" />
-            3.31
+            <FormatNumber value={14} />
           </div>
-
-          <div className="opacity-50">Yesterday</div>
+          <div className="opacity-50">Today</div>
         </div>
       </div>
 
@@ -34,7 +35,7 @@ export function MilesBalanceCard() {
           <span className="justify-center opacity-50">Available</span>
           <div className="flex items-center ">
             <AsiaMilesIcon className="pr-1 " />
-            <FormatNumber value={10000} />
+            <FormatNumber value={78000} />
           </div>
         </div>
 
@@ -42,7 +43,7 @@ export function MilesBalanceCard() {
           <span className="justify-center opacity-50">Locked</span>
           <div className="flex items-center">
             <AsiaMilesIcon className="pr-1 " />
-            <FormatNumber value={81307.11} />
+            <FormatNumber value={12914} />
           </div>
           <UnionIcon className="text-sm" />
         </div>

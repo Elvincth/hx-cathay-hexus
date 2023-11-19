@@ -84,11 +84,11 @@ export function ExtraInterestModal({
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <div className="flex flex-col items-center justify-center w-full gap-4 p-4">
-          <div className="flex flex-row items-center justify-between w-full ">
+        <div className="flex w-full flex-col items-center justify-center gap-4 p-4">
+          <div className="flex w-full flex-row items-center justify-between ">
             <div className="text-sm opacity-50 ">
-              Accumulate rewards by completing
-              <br /> daily missions, applicable to all plans.
+              Accumulate rewards by completing daily missions, applicable to all
+              plans.
             </div>
             <div>
               <OutlineButton className="text-sm " color={"primary"}>
