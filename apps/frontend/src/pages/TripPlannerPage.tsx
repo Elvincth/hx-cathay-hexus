@@ -11,12 +11,15 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
+import { useState } from "react";
 import { AsiaMilesIcon } from "~/features/common";
 import { StarRating } from "~/features/common/components/StartRating";
+import { RegenerateBlockModal } from "~/features/miles/components/RegenerateBlockModal";
 import { trpc } from "~/lib/trpcClient";
 
 export function TripPlanner() {
   const tripActivities = trpc.ai.genTripActivities.useMutation();
+  const [regenerateModal, setRegenerateModal] = useState(false);
 
   return (
     <IonPage>
@@ -55,16 +58,7 @@ export function TripPlanner() {
                 <IonButton
                   color="light"
                   fill="outline"
-                  onClick={async () => {
-                    const result = await tripActivities.mutateAsync({
-                      adults: 1,
-                      children: 2,
-                      travelDate: "2023-11-19",
-                      destination: "Tokyo, Japan",
-                    });
-
-                    console.log(result);
-                  }}
+                  onClick={() => setRegenerateModal(true)}
                 >
                   <IonIcon icon={reload} />
                 </IonButton>
@@ -90,6 +84,11 @@ export function TripPlanner() {
 
           {/* body */}
         </div>
+
+        <RegenerateBlockModal
+          opened={regenerateModal}
+          onClosed={() => setRegenerateModal(false)}
+        />
 
         <div className="p-4 font-semibold">
           <div className="w-full pb-3 ">Hotel</div>
