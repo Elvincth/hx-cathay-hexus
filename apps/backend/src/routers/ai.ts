@@ -5,7 +5,7 @@ import { llm } from "~/utils/aiHelper";
 import { klookPlugin } from "~/utils/klookPlugin";
 
 export const aiRouter = createTRPCRouter({
-  world: publicProcedure.query(async () => {
+  genTripActivities: publicProcedure.mutation(async () => {
     const tools = [new RequestsGetTool(), new RequestsPostTool()];
 
     const executor = await initializeAgentExecutorWithOptions(tools, llm, {

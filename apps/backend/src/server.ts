@@ -5,11 +5,6 @@ import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import "dotenv/config";
 import { aiRouter } from "./routers/ai";
 import { env } from "~/env";
-import { ChatOpenAI } from "langchain/chat_models/openai";
-import { initializeAgentExecutorWithOptions } from "langchain/agents";
-import { RequestsGetTool, RequestsPostTool } from "langchain/tools";
-import { klookPlugin } from "./utils/klookPlugin";
-import { llm } from "./utils/aiHelper";
 
 export const appRouter = createTRPCRouter({
   ai: aiRouter,
