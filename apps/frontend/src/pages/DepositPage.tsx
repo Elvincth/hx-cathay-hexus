@@ -17,6 +17,7 @@ import {
   TripCard,
   ListItem,
   AsiaMilesIcon,
+  FormatNumber,
 } from "~/features/common";
 import { FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -99,7 +100,7 @@ export const DepositPage = () => {
                 content={
                   <div className="flex flex-row items-center ">
                     <AsiaMilesIcon className="pr-1" />
-                    20000
+                    <FormatNumber value={20000} />
                   </div>
                 }
               />

@@ -1,6 +1,7 @@
 import {
   IonButton,
   IonButtons,
+  IonCheckbox,
   IonCol,
   IonContent,
   IonGrid,
@@ -10,6 +11,8 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
+import { AsiaMilesIcon } from "~/features/common";
+import { StarRating } from "~/features/common/components/StartRating";
 import { trpc } from "~/lib/trpcClient";
 
 export function TripPlanner() {
@@ -83,8 +86,8 @@ export function TripPlanner() {
           {/* body */}
         </div>
         <div className="p-4 font-semibold">
-          <div className=" w-full">Hotel</div>
-          <IonGrid className="p-0">
+          <div className=" w-full pb-3">Hotel</div>
+          <IonGrid className="p-0 pb-6">
             <IonRow className="gap-2 ">
               <IonCol className="flex flex-col gap-1 rounded-xl  border-[1px] px-4 py-3 text-sm font-medium">
                 <div className=" opacity-50">Check In</div>
@@ -96,6 +99,30 @@ export function TripPlanner() {
               </IonCol>
             </IonRow>
           </IonGrid>
+          <div className="flex flex-col">
+            <div className="flex flex-row justify-between">
+              <div className=" flex flex-row">
+                <img src="/images/Hotel1.png" className="w-[66px]" />
+                <div className=" flex flex-col gap-1 pl-2">
+                  <div>Shinagawa Prince Hotel</div>
+                  <div className="flex flex-row items-center">
+                    <StarRating star={4} />
+                    <div className=" pl-1 text-xs opacity-50">Best Match</div>
+                  </div>
+                  <div className="flex flex-row items-center font-medium text-primary">
+                    <AsiaMilesIcon />
+                    <div className=" flex flex-row gap-1 text-sm">
+                      2500 <div className=" text-black opacity-50">or</div>{" "}
+                      <div className=" text-black">HK$946 per night</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <IonCheckbox />
+              </div>
+            </div>
+          </div>
         </div>
       </IonContent>
     </IonPage>
