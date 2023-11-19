@@ -16,31 +16,9 @@ import { ActivityList } from "~/features/common/components/ActivityList";
 import { StarRating } from "~/features/common/components/StartRating";
 import { trpc } from "~/lib/trpcClient";
 
-export function TripPlanner() {
+export function HotelPlannerPage() {
   const tripActivities = trpc.ai.genTripActivities.useMutation();
-  const ActivityLists = [
-    {
-      title: "TeamLab Planets TOKYO Ticket",
-      description: "Digital Nature | All day",
-      price: 195,
-      miles: 2500,
-      imageUrl: "",
-    },
-    {
-      title: "TeamLab 2 TOKYO Ticket",
-      description: "Digital Nature 2 | All day",
-      price: 195,
-      miles: 2500,
-      imageUrl: "",
-    },
-    {
-      title: "TeamLab Planets TOKYO 3",
-      description: "Digital Nature 3 | All day",
-      price: 195,
-      miles: 2500,
-      imageUrl: "",
-    },
-  ];
+  const ActivityLists = [];
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -129,16 +107,27 @@ export function TripPlanner() {
             </IonRow>
           </IonGrid>
           <div className=" flex flex-col gap-2">
-            {ActivityLists.map((item, index) => (
-              <ActivityList
-                key={index}
-                title={item.title}
-                description={item.description}
-                price={item.price}
-                miles={item.miles}
-                imageUrl={item.imageUrl}
-              />
-            ))}
+            <ActivityList
+              title={""}
+              description={""}
+              price={0}
+              miles={0}
+              imageUrl={""}
+            />
+            <ActivityList
+              title={""}
+              description={""}
+              price={0}
+              miles={0}
+              imageUrl={""}
+            />
+            <ActivityList
+              title={""}
+              description={""}
+              price={0}
+              miles={0}
+              imageUrl={""}
+            />
           </div>
         </div>
       </IonContent>
