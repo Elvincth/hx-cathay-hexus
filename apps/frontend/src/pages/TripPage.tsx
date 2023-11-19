@@ -13,7 +13,7 @@ import { TripPlannerModal } from "~/features/trip";
 import { useState } from "react";
 import { FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-const tripCards = [
+export const tripCards = [
   {
     title: "Tokyo Japan",
     url: "/images/Tokyo.png",
@@ -27,7 +27,7 @@ const tripCards = [
     miles: 40000,
   },
 ];
-const EuropeCards = [
+export const EuropeCards = [
   {
     title: "London, United Kingdom 2024",
     url: "/images/London.png",
@@ -41,7 +41,7 @@ const EuropeCards = [
     miles: 25000,
   },
 ];
-const AffordableCard = [
+export const AffordableCard = [
   {
     title: "Tokyo 2024",
     url: "/images/BangKok2.png",

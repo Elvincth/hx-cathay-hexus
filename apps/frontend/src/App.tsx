@@ -67,12 +67,6 @@ type TabData = {
 };
 
 const App = () => {
-  const [baseMiles, setBaseMiles] = useState(0);
-  const [extraMiles, setExtraMiles] = useState(0);
-  const [baseAPY, setBaseAPY] = useState(0);
-  const [extraAPY, setExtraAPY] = useState(0);
-  const [maxAmount, setMaxAmount] = useState(0);
-  const [selectedAmount, setSelectedAmount] = useState(0);
   const [claimByDate, setClaimByDate] = useState(new Date());
   const routerOutletRef = useRef<HTMLElement | null>(null);
   const [queryClient] = useState(() => new QueryClient());
@@ -119,18 +113,6 @@ const App = () => {
     <AppContext.Provider
       value={{
         routerOutletRef,
-        baseMiles,
-        baseAPY,
-        setBaseAPY,
-        extraAPY,
-        setExtraAPY,
-        setBaseMiles,
-        extraMiles,
-        setExtraMiles,
-        maxAmount,
-        setMaxAmount,
-        selectedAmount, 
-        setSelectedAmount,
         claimByDate,
         setClaimByDate,
       }}
