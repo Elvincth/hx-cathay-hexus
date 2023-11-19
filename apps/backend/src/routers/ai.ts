@@ -1,5 +1,5 @@
 import { initializeAgentExecutorWithOptions } from "langchain/agents";
-import { HumanMessage, SystemMessage } from "langchain/dist/schema";
+import { HumanMessage, SystemMessage } from "langchain/schema";
 import { RequestsGetTool, RequestsPostTool } from "langchain/tools";
 import { z } from "zod";
 import { publicProcedure, createTRPCRouter } from "~/trpc";
@@ -42,18 +42,8 @@ export const aiRouter = createTRPCRouter({
     .mutation(async ({ input }) => {
       const tools = [new RequestsGetTool(), new RequestsPostTool()];
 
-      const executor = await initializeAgentExecutorWithOptions(tools, llm, {
-        agentType: "chat-zero-shot-react-description",
-        verbose: true,
-      });
-
       // Generate a dynamic input string using the user's travel details
       const dynamicInput = `Plan a trip to ${input.destination} for ${input.adults} adults and ${input.children} children on ${input.travelDate}. List of things to do in ${input.destination} in JSON format e.g. {name: 'Activity Name', type: 'Activity Type', price: 'Price'}`;
-
-      // Inject klook plugin into executor and use dynamic input
-      const result = await executor.invoke({
-        input: `${JSON.stringify(klookPlugin)}${dynamicInput}`,
-      });
 
       const messages = [
         new SystemMessage({ content: "You are a helpful assistant" }),
@@ -65,7 +55,7 @@ export const aiRouter = createTRPCRouter({
 
       const chatModelResult = await llm.predictMessages(messages);
 
-      return chatModelResult;
+      return chatModelResult.content;
     }),
 
   getTripActivities: publicProcedure.mutation(async () => {}),
