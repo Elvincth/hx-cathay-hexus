@@ -23,7 +23,7 @@ export const ActivityList = ({
     <div className="flex flex-col">
       <div className="flex flex-row justify-between">
         <div className="flex flex-row ">
-          <img src="/images/Hotel1.png" className="h-[66px] w-[66px]" />
+          <img src={imageUrl} className="h-[66px] w-[66px]" />
           <div className="flex flex-col gap-1 pl-2 ">
             <div className="line-clamp-1">{title}</div>
             <div className="flex flex-row items-center text-xs opacity-50">
