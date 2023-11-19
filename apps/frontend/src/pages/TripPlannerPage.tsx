@@ -20,8 +20,8 @@ import { RegenerateBlockModal } from "~/features/miles/components/RegenerateBloc
 export interface Activity {
   name: string;
   type: string;
-  price: number;
-  miles: number;
+  priceHKD: number;
+  asiaMiles: number;
   imageUrl: string;
 }
 
@@ -31,22 +31,22 @@ export function TripPlanner() {
     {
       name: "TeamLab Planets TOKYO Ticket",
       type: "Digital Nature | All day",
-      price: 195,
-      miles: 2500,
+      priceHKD: 195,
+      asiaMiles: 2500,
       imageUrl: "/images/Activity1.png",
     },
     {
       name: "TeamLab 2 TOKYO Ticket",
       type: "Digital Nature 2 | All day",
-      price: 195,
-      miles: 2500,
+      priceHKD: 195,
+      asiaMiles: 2500,
       imageUrl: "/images/Activity2.png",
     },
     {
       name: "TeamLab Planets TOKYO 3",
       type: "Digital Nature 3 | All day",
-      price: 195,
-      miles: 2500,
+      priceHKD: 195,
+      asiaMiles: 2500,
       imageUrl: "/images/Activity3.png",
     },
   ]);
@@ -141,8 +141,8 @@ export function TripPlanner() {
                 key={index}
                 title={item.name}
                 description={item.type}
-                price={item.price}
-                miles={item.miles}
+                price={item.priceHKD}
+                miles={item.asiaMiles}
                 imageUrl={item.imageUrl}
               />
             ))}
