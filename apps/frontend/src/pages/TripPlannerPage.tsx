@@ -1,19 +1,17 @@
 import {
   IonButton,
   IonButtons,
-  IonCol,
   IonContent,
-  IonGrid,
   IonIcon,
   IonPage,
-  IonRow,
   IonToolbar,
 } from "@ionic/react";
 import { chevronBack, reload } from "ionicons/icons";
-import { FreeMode } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { trpc } from "~/lib/trpcClient";
 
 export function TripPlanner() {
+  const tripActivities = trpc.ai.genTripActivities.useMutation();
+
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -29,7 +27,11 @@ export function TripPlanner() {
 
           <IonToolbar className="pt-8 [--background:transparent]">
             <IonButtons slot="start">
-              <IonButton color="dark">
+              <IonButton
+                color="dark"
+                routerLink="/manage-trip"
+                routerDirection="back"
+              >
                 <IonIcon icon={chevronBack} />
               </IonButton>
             </IonButtons>
@@ -44,13 +46,21 @@ export function TripPlanner() {
               </div>
 
               <div>
-                <IonButton color="light" fill="outline">
+                <IonButton
+                  color="light"
+                  fill="outline"
+                  onClick={async () => {
+                    const result = await tripActivities.mutateAsync();
+
+                    console.log(result);
+                  }}
+                >
                   <IonIcon icon={reload} />
                 </IonButton>
               </div>
             </div>
 
-            <div className="mt-2 flex w-full gap-4 overflow-auto">
+            <div className="mt-2 flex w-full gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
               {[
                 "Cultural Immersion",
                 "Exploration",
@@ -59,7 +69,7 @@ export function TripPlanner() {
               ].map((tag, index) => (
                 <div
                   key={index}
-                  className="flex w-fit items-center whitespace-nowrap rounded-xl bg-[#016564] p-1 px-1.5 py-1 text-xs font-medium text-white"
+                  className="flex w-fit items-center whitespace-nowrap rounded-xl bg-[#016564] p-1 px-1.5 py-1 text-xs font-medium text-white "
                 >
                   {tag}
                 </div>
@@ -67,6 +77,7 @@ export function TripPlanner() {
             </div>
           </div>
 
+          {/* body */}
           <div>Activity</div>
         </div>
       </IonContent>
