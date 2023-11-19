@@ -28,21 +28,21 @@ export function TripPlanner() {
       description: "Digital Nature | All day",
       price: 195,
       miles: 2500,
-      imageUrl: "",
+      imageUrl: "/images/Activity1.png",
     },
     {
       title: "TeamLab 2 TOKYO Ticket",
       description: "Digital Nature 2 | All day",
       price: 195,
       miles: 2500,
-      imageUrl: "",
+      imageUrl: "/images/Activity2.png",
     },
     {
       title: "TeamLab Planets TOKYO 3",
       description: "Digital Nature 3 | All day",
       price: 195,
       miles: 2500,
-      imageUrl: "",
+      imageUrl: "/images/Activity3.png",
     },
   ];
   return (
