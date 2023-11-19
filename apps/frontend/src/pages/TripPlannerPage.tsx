@@ -13,7 +13,7 @@ import { chevronBack, reload } from "ionicons/icons";
 import { trpc } from "~/lib/trpcClient";
 
 export function TripPlanner() {
-  const tripActivities = trpc.ai.genTripActivitiesKlook.useMutation();
+  const tripActivities = trpc.ai.genTripActivities.useMutation();
 
   return (
     <IonPage>
@@ -83,15 +83,15 @@ export function TripPlanner() {
           {/* body */}
         </div>
         <div className="p-4 font-semibold">
-          <div className=" w-full">Hotel</div>
+          <div className="w-full ">Hotel</div>
           <IonGrid className="p-0">
             <IonRow className="gap-2 ">
               <IonCol className="flex flex-col gap-1 rounded-xl  border-[1px] px-4 py-3 text-sm font-medium">
-                <div className=" opacity-50">Check In</div>
+                <div className="opacity-50 ">Check In</div>
                 <div className=" text-primary">19 Nov 2023</div>
               </IonCol>
               <IonCol className="flex flex-col gap-1 rounded-xl border-[1px] px-4 py-3 text-sm font-medium">
-                <div className=" opacity-50">Check Out</div>
+                <div className="opacity-50 ">Check Out</div>
                 <div className=" text-primary">26 Nov 2023</div>
               </IonCol>
             </IonRow>

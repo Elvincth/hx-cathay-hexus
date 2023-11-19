@@ -37,7 +37,7 @@ export const aiRouter = createTRPCRouter({
     return result;
   }),
 
-  genTripActivitiesKlookWithVars: publicProcedure
+  genTripActivities: publicProcedure
     .input(travelDetailsSchema)
     .mutation(async ({ input }) => {
       const tools = [new RequestsGetTool(), new RequestsPostTool()];
