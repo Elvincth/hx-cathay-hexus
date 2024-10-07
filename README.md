@@ -1,4 +1,4 @@
-# ✈️ HX-Cathay Pacific - MILES+ Project
+# ✈️ Cathay Hackathon - MILES+ Project
 ![Cover](https://github.com/user-attachments/assets/65b7956a-e532-4cc0-aa88-3099f96a2303)
 
 Welcome to the **MILES+** project repository! 🚀 This initiative, developed by **Group 1 HEXUS**, aims to revolutionize the Asia Miles experience, transforming it into a more dynamic and engaging daily currency. Here, you'll find everything you need to understand the project setup, development, and deployment.
