@@ -78,8 +78,8 @@ turbo start --filter backend
 ```
 
 ### 🌐 Live Links
-- **Frontend**: [MILES+ Frontend](https://milesplus.netlify.app/)
-- **Backend**: [MILES+ Backend](https://hx-cathay-production.up.railway.app/)
+ [See Preview](https://milesplus.netlify.app/)
+
 
 ---
 
