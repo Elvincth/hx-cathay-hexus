@@ -1,4 +1,5 @@
 # ✈️ HX-Cathay Pacific - MILES+ Project
+![Cover](https://github.com/user-attachments/assets/65b7956a-e532-4cc0-aa88-3099f96a2303)
 
 Welcome to the **MILES+** project repository! 🚀 This initiative, developed by **Group 1 HEXUS**, aims to revolutionize the Asia Miles experience, transforming it into a more dynamic and engaging daily currency. Here, you'll find everything you need to understand the project setup, development, and deployment.
 
@@ -15,7 +16,13 @@ Our mission is to **elevate user engagement** with Asia Miles by:
 - Integrating it seamlessly into everyday activities.
 - Expanding the scope of earning and redemption opportunities.
 
+
+
 ### 🚀 Innovative Features
+![Screenshot 2024-10-08 at 1 44 43 AM](https://github.com/user-attachments/assets/8b514600-b9f1-481b-a419-cf0c6f5fd80f)
+![Screenshot 2024-10-08 at 1 45 09 AM](https://github.com/user-attachments/assets/2ca1c526-d8fd-45e3-96b4-1d6f62a525db)
+  
+
 
 #### 🌱 MILES GROWTH
 - A time-based mileage growth scheme that encourages daily interactions through **personalized missions**.
@@ -23,11 +30,13 @@ Our mission is to **elevate user engagement** with Asia Miles by:
 - **Dynamic Growth Rates**:
   - **Base Rate**: 1.5%
   - **Maximum Rate**: Up to 3% with consistent participation over six months.
-  
+
+
 #### 🔗 MILES CONNECT
 - A **global exchange network** that allows users to convert their Asia Miles across multiple airline loyalty programs.
 - Built on a secure API framework, it integrates with various airline systems to facilitate smooth mile exchanges.
 - Expands the flexibility of miles, offering more redemption scenarios and making Asia Miles more versatile for users.
+
 
 ---
 
